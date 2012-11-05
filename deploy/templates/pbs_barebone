@@ -1,0 +1,7 @@
+#!/bin/bash --login
+# 
+#PBS -N $job_name
+#PBS -l mppwidth=$cores_reserved
+#PBS -l mppnppn=$corespernode
+#PBS -l walltime=$wall_time
+#PBS -m abe

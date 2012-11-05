@@ -1,0 +1,60 @@
+# 
+# Copyright (C) University College London, 2007-2012, all rights reserved.
+# 
+# This file is part of HemeLB and is provided to you under the terms of
+# the GNU LGPL. Please see LICENSE in the top level directory for full
+# details.
+# 
+
+default: 
+  CMAKE_BUILD_TYPE: "Release"
+  CMAKE_CXX_FLAGS_RELEASE: "-O4"
+no_steering:
+  HEMELB_STEERING_LIB: "none"
+basic_steering:
+  HEMELB_STEERING_LIB: "basic"
+debug:
+  CMAKE_BUILD_TYPE: "Debug"
+  HEMELB_LOG_LEVEL: "debug"
+  HEMELB_OPTIMISATION: ""
+gdb:
+  HEMELB_USE_DEBUGGER: "ON"
+no_streaklines:
+  HEMELB_USE_STREAKLINES: "OFF"
+wait_on_connect:
+  HEMELB_WAIT_ON_CONNECT: "ON"
+d3q15:
+  HEMELB_LATTICE: "D3Q15"
+d3q19:
+ HEMELB_LATTICE: "D3Q19"
+d3q27:
+  HEMELB_LATTICE: "D3Q27"
+lbgk:
+  HEMELB_KERNEL: "LBGK"
+entropic_a:
+  HEMELB_KERNEL: "EntropicAnsumali"
+entropic_c:
+  HEMELB_KERNEL: "EntropicChik"
+mrt:
+  HEMELB_KERNEL: "MRT"
+non_newtonian_cy:
+  HEMELB_KERNEL: "NNCY"
+non_newtonian_c:
+  HEMELB_KERNEL: "NNC"
+non_newtonian_tpl:
+  HEMELB_KERNEL: "NNTPL"
+f_interpolation:
+  HEMELB_WALL_BOUNDARY: "FINTERPOLATION"
+guo_zheng_shi:
+  HEMELB_WALL_BOUNDARY: "GZS"
+regularised:
+  HEMELB_WALL_BOUNDARY: "REGULARISED"
+simple_bounce_back:
+  HEMELB_WALL_BOUNDARY: "SIMPLEBOUNCEBACK"
+separated_pointpoint:
+  HEMELB_POINTPOINT_IMPLEMENTATION: Separated
+separated_concerns:
+  HEMELB_SEPARATED_CONCERNS: ON
+no_debug:
+  CMAKE_CXX_FLAGS: "-DNDEBUG"
+  CMAKE_C_FLAGS: "-DNDEBUG"

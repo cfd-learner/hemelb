@@ -1,0 +1,54 @@
+# 
+# Copyright (C) University College London, 2007-2012, all rights reserved.
+# 
+# This file is part of HemeLB and is provided to you under the terms of
+# the GNU LGPL. Please see LICENSE in the top level directory for full
+# details.
+# 
+
+example:
+    xml_files:
+        'results/report.xml':
+            total: 'timings/timer[name="Total"]/mean'
+            sites: 'geometry/sites'
+        'config.xml':
+            steps: ['simulation','cyclesteps']
+    text_files:
+        'results/report.txt':
+            cores: 'Ran with ([\d]+) threads'
+        'CMakeCache.txt':
+            build_type: 'CMAKE_BUILD_TYPE:STRING=(.*)'
+    name_properties:
+        machine_by_name: '_([^_]*)_\d$'
+    yaml_files:
+        'env.yml':
+            type: script
+            machine: machine_name
+extraction:
+  name_properties:
+    name: '(.*)'
+  extraction_files:
+    'results/Extracted/pressure_axial_profile.dat':
+      axial_field_count: fieldCount
+      axial_pressure: [final,axial_pressure]
+      axial_position: [final,grid]
+      voxel_size: voxelSizeMetres
+    'results/Extracted/velocity_shearstress_2_5_lengths_in.dat':
+      radial_velocity: [final,developed_velocity_profile]
+      radial_position: [final,grid]
+  compound_properties:
+      axial_mean_pressure: sum(axial_pressure)/len(axial_pressure)
+optional:
+  name_properties:
+    name: '(.*)'
+    voxelsize: 'cylinder_0_00(.).*'
+    cores: '.*planck_(.)'
+  optional_properties:
+    'cores==1':
+        compound_properties:
+          banana: cores
+          apple: cores
+    'voxelsize!=6':
+        compound_properties:
+          apple: voxelsize
+    

@@ -1,0 +1,35 @@
+# 
+# Copyright (C) University College London, 2007-2012, all rights reserved.
+# 
+# This file is part of HemeLB and is provided to you under the terms of
+# the GNU LGPL. Please see LICENSE in the top level directory for full
+# details.
+# 
+
+version: 1
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  parsing:
+    format: '%(context)s - %(message)s'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  parsing:
+    class: logging.handlers.RotatingFileHandler
+    filename: 'parsing.log'
+    level: DEBUG
+    formatter: parsing
+    backupCount: 2
+    maxBytes: 65536
+loggers:
+  parsing:
+    level: DEBUG
+    handlers: [parsing]
+    propagate: no
+root:
+  level: DEBUG
+  handlers: [console]

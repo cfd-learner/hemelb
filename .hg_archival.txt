@@ -1,0 +1,5 @@
+repo: 6028b0225dd98d79e69f10fd493de75600d5b0e0
+node: 1d202e7dc754c40e8dc14065b6eb79408de61716
+branch: physics_validation
+latesttag: 0.2.2
+latesttagdistance: 321

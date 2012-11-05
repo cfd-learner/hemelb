@@ -1,0 +1,24 @@
+# 
+# Copyright (C) University College London, 2007-2012, all rights reserved.
+# 
+# This file is part of HemeLB and is provided to you under the terms of
+# the GNU LGPL. Please see LICENSE in the top level directory for full
+# details.
+# 
+
+# 
+
+default:
+  local_results: "$test_home/fixtures/results"
+  local_configs: "$test_home/fixtures/configs"
+  local_profiles: "$test_home/fixtures/profiles"
+  local_templates_path: "$test_home/fixtures/templates"
+  username: "test_user"
+legion:
+  username: "test_user_legion"
+  project: "testproject"
+hector:
+  project: "testproject"
+  budget: "testbudget"
+localhost:
+  home_path_template: "/Users/$username/devel/fabric/hemelb/local" 

@@ -1,0 +1,15 @@
+#!/bin/bash --login
+# 
+# Copyright (C) University College London, 2007-2012, all rights reserved.
+# 
+# This file is part of HemeLB and is provided to you under the terms of
+# the GNU LGPL. Please see LICENSE in the top level directory for full
+# details.
+# 
+#PBS -N $job_name
+#PBS -l mppwidth=$cores_reserved
+#PBS -l mppnppn=$corespernode
+#PBS -l walltime=$wall_time
+#PBS -A $budget
+#PBS -q $queue
+#PBS -m abe
